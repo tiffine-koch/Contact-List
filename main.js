@@ -37,25 +37,21 @@ function newEntry(event) {
    "location": location,
    "phone": phone,
    "face":  face,
-  // contact.name = $('#conEntry').val();
-  // contact.email = $('#emailEntry').val();
-  // contact.loc = $('#locEntry').val();
-  // contact.phone = $('#phoneEntry').val();
-  // contact.face = $('#faceEntry').val();
  };
-  contactArray.push(contact);
 
-  var $tr = $('#template').clone();
-   $tr.removeAttr('id');
-   $tr.children('.name').text(contact.name);
-   $tr.children('.email').text(contact.email);
-   $tr.children('.location').text(contact.loc);
-   $tr.children('.phone').text(contact.phone);
-   $tr.children('.face').text(contact.face);
+contactArray.push(contact);
 
-  saveToStorage();
-  updateTable();
-  console.log(this);
+var $tr = $('#template').clone();
+ $tr.removeAttr('id');
+ $tr.children('.name').text(contact.name);
+ $tr.children('.email').text(contact.email);
+ $tr.children('.location').text(contact.loc);
+ $tr.children('.phone').text(contact.phone);
+ $tr.children('.face').text(contact.face);
+
+saveToStorage();
+updateTable();
+console.log(this);
  }
 
 function deleteTrans() {
@@ -114,12 +110,12 @@ contactList.children().not('#template').remove();
 }
 
 function sortHeaders(e) {
-    var $target = $(e.target);
-    console.log($target);
-    var $targetClass = $target.attr('class');
+  var $target = $(e.target);
+  console.log($target);
+  var $targetClass = $target.attr('class');
 
-    contactArray = _.sortBy(contactArray, $targetClass);
+  contactArray = _.sortBy(contactArray, $targetClass);
 
-    saveToStorage();
-    updateList();
+  saveToStorage();
+  updateList();
     }
