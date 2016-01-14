@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact List</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page-header">
+    <h1>The D List <small>Modern Dating Contact List</small></h1>
+  </div>
+
+  <div id="topButtons" class="container">
+    <div class="btn-group">
+      <button id="buttonFilter" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Find Contact<span class="caret"></span></button>
+      <ul id="catDropDown" class="dropdown-menu">
+        <li class="dropList" selected="selected" value="Name"><a href="#">Name</a></li>
+        <li class="dropList" selected="selected" value="Email"><a href="#">Email</a></li>
+        <li class="dropList" selected="selected" value"Location"><a href="#">Location</a></li>
+        <li class="dropList" selected="selected" value="Phone"><a href="#">Phone #</a></li>
+        <li class="dropList" selected="selected" value="FB"><a href="#">Facebook</a></li>
+       </ul>
+      </div>
+
+
+    <div id="buttonSort" class="btn-group">
+      <button id="sortButton" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort Contacts<span class="caret"></span></button>
+      <ul id="catDropDown" class="dropdown-menu">
+        <li class="sortDropList"><a href="#">By Name</a></li>
+        <li class="sortDropList"><a href="#">By Location</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+    <thead class="tHeader">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Location</th>
+        <th>Phone</th>
+        <th>FaceBook</th>
+        <th>Favorite</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+
+    <tbody id="list">
+      <tr id="template">
+        <td class="name"></td>
+        <td class="email"></td>
+        <td class="location"></td>
+        <td class="phone"></td>
+        <td class="fb"></td>
+
+        <td>
+          <button type="button" class="btn btn-danger" id="fav">
+            <span class="glyphicon glyphicon-heart"></span>
+          </button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-default" id="trash">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="name">John Smith</td>
+        <td class="email">jsmith@gmail.com</td>
+        <td class="location">San Diego</td>
+        <td class="phone">555.555.5555</td>
+        <td class="fb">The Real J Smith</td>
+        <td>
+          <button type="button" class="btn btn-danger" id="heart">
+            <span class="glyphicon glyphicon-heart"></span>
+          </button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-default" id="trash">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </tbody>
+</div>
+
+<div id="container">
+  <div id="formEntry" class="row">
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="inputTask">New Contact</label>
+        <input type="name" class="form-control" id="conEntry" placeholder="Enter Name" value="" required>
+      </div>
+      <div class="form-group">
+        <label for="inputDate">Email</label>
+        <input type="email" class="form-control" id="emailEntry" placeholder="Enter Email" value="" required="">
+      </div>
+      <div class="form-group">
+        <label class="locInput" for="inputAmount">Location</label>
+        <input type="number" class="form-control" id="locEntry" placeholder="Enter Location" value="" step=0.01 required>
+      </div>
+      <div class="form-group">
+        <label class="phoneInput" for="inputAmount">Phone</label>
+        <input type="phone" class="form-control" id="phonetEntry" placeholder="Enter #" value="" step=0.01 required>
+      </div>
+      <div class="form-group">
+        <label class="face" for="inputAmount">Facebook</label>
+        <input type="text" class="form-control" id="faceEntry" value="" required>
+      </div>
+
+    </div>
+    <button id="newEntry" class="btn btn-danger">Add New Contact</button>
+   </form>
+  </div>
+</div>
+
+
+<script src="http://momentjs.com/downloads/moment.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
