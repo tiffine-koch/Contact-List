@@ -63,9 +63,11 @@ function deleteTrans() {
 }
 
 function attachFav() {
-  $(this).closest('tr').addClass('.fav');
+  $(this).closest('tr').addClass('#heart');
   console.log(this);
 }
+
+
 
 function findCat(event) {
   event.preventDefault();
