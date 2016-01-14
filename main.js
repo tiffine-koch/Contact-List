@@ -9,17 +9,19 @@ function init() {
 
   $('.dropList').on('click', findCat)
   $('#formEntry').submit(newEntry);
+  console.log(this);
   $('#catDropDown').on('change', findCat);
   $('table').on('click', '#trash', deleteTrans);
+  $('table').on('click', '#fav', attachFav);
 }
 
 function removeEntries() {
   $('input:checked').closest('tr').remove();
 }
 
-function newEntry() {
+function newEntry(event) {
   event.preventDefault();
-
+  console.log(this);
   contact.name = $('#conEntry').val();
   contact.email = $('#emailEntry').val();
   contact.loc = $('#locEntry').val();
@@ -57,11 +59,16 @@ function newEntry() {
    //   // console.log(amountEntry);
    //   }
 
-   $('#list').prepend($tr);
+   $('#contactList').append($tr);
+   console.log(this);
  }
 
 function deleteTrans() {
   $(this).closest('tr').remove();
+}
+
+function attachFav() {
+  $(this).closest('tr').addClass('.fav');
 }
 function findCat(event) {
   event.preventDefault();
@@ -91,13 +98,17 @@ function loadFromStorage() {
 
 function updateList() {
   var $contactList = $('#contactList');
-  $contactList.empty();
+
+$contactList.children().not('#template').remove();
+
   var $contacts = contacts.map(function(contact, index) {
-    $tr.append($('<td>').text(contact.name))
-    $tr.append($('<td>').text(contact.email))
-    $tr.append($('<td>').text(contact.loc))
-    $tr.append($('<td>').text(contact.phone))
-    $tr.append($('<td>').text(contact.face))
+    var $tr = $('#template').clone();
+    $tr.removeAttr('id');
+    $tr.children('.name').text(contact.name);
+    $tr.children('.email').text(contact.email);
+    $tr.children('.location').text(contact.loc);
+    $tr.children('.phone').text(contact.phone);
+    $tr.children('.fb').text(contact.face);
     return $tr
     });
   $contactList.append($contacts);
