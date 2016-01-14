@@ -1,7 +1,6 @@
 $(document).ready(init);
 
-var contactList = [];
-var contact = {};
+var contactArray = [];
 
 function init() {
   loadFromStorage();
@@ -13,6 +12,8 @@ function init() {
   $('#catDropDown').on('change', findCat);
   $('table').on('click', '#trash', deleteTrans);
   $('table').on('click', '#fav', attachFav);
+  $('table').on('dblclick', 'th', sortHeaders);
+
 }
 
 function removeEntries() {
@@ -20,14 +21,29 @@ function removeEntries() {
 }
 
 function newEntry(event) {
-  event.preventDefault();
+  // event.preventDefault();
   console.log(this);
-  contact.name = $('#conEntry').val();
-  contact.email = $('#emailEntry').val();
-  contact.loc = $('#locEntry').val();
-  contact.phone = $('#phoneEntry').val();
-  contact.face = $('#faceEntry').val();
-  contactList.push(contact);
+
+  var name = $('#conEntry').val();
+  var email = $('#emailEntry').val();
+  var location = $('#locEntry').val();
+  var phone = $('#phoneEntry').val();
+  var face = $('#faceEntry').val();
+  // contactList.push(contact);
+
+ var contact = {
+   "name": name,
+   "email": email,
+   "location": location,
+   "phone": phone,
+   "face":  face,
+  // contact.name = $('#conEntry').val();
+  // contact.email = $('#emailEntry').val();
+  // contact.loc = $('#locEntry').val();
+  // contact.phone = $('#phoneEntry').val();
+  // contact.face = $('#faceEntry').val();
+ };
+  contactArray.push(contact);
 
   var $tr = $('#template').clone();
    $tr.removeAttr('id');
@@ -35,32 +51,11 @@ function newEntry(event) {
    $tr.children('.email').text(contact.email);
    $tr.children('.location').text(contact.loc);
    $tr.children('.phone').text(contact.phone);
-   $tr.children('.fb').text(contact.face);
-   // adding switch operator
-   // switch (catEntry) {
-   //   case 'Bill':
-   //     $newAmount.addClass('testWith');
-   //     $newAmount.text('-' + Math.abs(amountEntry));
-   //     break
-   //   case 'Income':
-   //     $newAmount.addClass('testDep');
-   //     $newAmount.text('+' + Math.abs(amountEntry));
-   //     break
-   //   case 'Entertainment':
-   //     $newAmount.addClass('testWith');
-   //     $newAmount.text('-' + Math.abs(amountEntry));
-   //     break
-   //   case 'Savings':
-   //     $newAmount.addClass('testWith');
-   //     $newAmount.text('-' + Math.abs(amountEntry));
-   //     break
-   //   default:
-   //     $newAmount.text('');
-   //   // console.log(amountEntry);
-   //   }
+   $tr.children('.face').text(contact.face);
 
-   $('#contactList').append($tr);
-   console.log(this);
+  saveToStorage();
+  updateTable();
+  console.log(this);
  }
 
 function deleteTrans() {
@@ -69,7 +64,9 @@ function deleteTrans() {
 
 function attachFav() {
   $(this).closest('tr').addClass('.fav');
+  console.log(this);
 }
+
 function findCat(event) {
   event.preventDefault();
   var text = $(this).text();
@@ -86,30 +83,74 @@ function addContact() {
 }
 
 function saveToStorage() {
-  localStorage.contacts = JSON.stringify(contacts);
+  localStorage.contactArray = JSON.stringify(contactArray);
 }
 
 function loadFromStorage() {
-  if(!localStorage.contacts) {
-    localStorage.contacts = '[]';
+  if(!localStorage.contactArray) {
+    localStorage.contactArray = '[]';
   }
-  contacts = JSON.parse(localStorage.contacts);
+  contactArray = JSON.parse(localStorage.contactArray);
 }
 
 function updateList() {
-  var $contactList = $('#contactList');
+var contactList = $('#contactList');
 
-$contactList.children().not('#template').remove();
+contactList.children().not('#template').remove();
 
-  var $contacts = contacts.map(function(contact, index) {
+  var $contacts = contactArray.map(function(contact, index) {
     var $tr = $('#template').clone();
     $tr.removeAttr('id');
     $tr.children('.name').text(contact.name);
     $tr.children('.email').text(contact.email);
-    $tr.children('.location').text(contact.loc);
+    $tr.children('.location').text(contact.location);
     $tr.children('.phone').text(contact.phone);
-    $tr.children('.fb').text(contact.face);
+    $tr.children('.face').text(contact.face);
     return $tr
     });
-  $contactList.append($contacts);
+  contactList.append($contacts);
 }
+
+// function sortHeaders(event) {
+//     var $targetId = $(event.target).attr('id');
+//     if($targetId == 'sortN') {
+//       contactList = _.sortBy(contactList, function(o) {
+//         return o.name
+//       });
+//     }
+//     if($targetId == 'sortE') {
+//       contactList = _.sortBy(contactList, function(o) {
+//         return o.email;
+//       });
+//     }
+//     if($targetId == 'sortL') {
+//       contactList = _.sortBy(contactList, function(o) {
+//         return o.location;
+//       });
+//     }
+//     if($targetId == 'sortP') {
+//       contactList = _.sortBy(contactList, function(o) {
+//         return o.phone;
+//       });
+//     }
+//     if($targetId == 'sortF') {
+//       contactList = _.sortBy(contactList, function(o) {
+//         return o.face;
+//         console.log('1');
+//       });
+//     }
+//     console.log('2');
+//     saveToStorage();
+//     updateList();
+//   }
+
+function sortHeaders(e) {
+    var $target = $(e.target);
+    console.log($target);
+    var $targetClass = $target.attr('class');
+
+    contactArray = _.sortBy(contactArray, $targetClass);
+
+    saveToStorage();
+    updateList();
+    }

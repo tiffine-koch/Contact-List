@@ -20,7 +20,7 @@
         <li class="dropList" selected="selected" value="Email"><a href="#">Email</a></li>
         <li class="dropList" selected="selected" value"Location"><a href="#">Location</a></li>
         <li class="dropList" selected="selected" value="Phone"><a href="#">Phone #</a></li>
-        <li class="dropList" selected="selected" value="FB"><a href="#">Facebook</a></li>
+        <li class="dropList" selected="selected" value="face"><a href="#">Facebook</a></li>
        </ul>
       </div>
 
@@ -38,11 +38,11 @@
     <table class="table">
     <thead class="tHeader">
       <tr>
-        <th id="sortN" class="sort name">Name</th>
-        <th id="sortE" class="sort email">Email</th>
-        <th id="sortL" class="sort loc">Location</th>
-        <th id="sortP" class="sort phone">Phone</th>
-        <th id="sortF" class="sort face">FaceBook</th>
+        <th id="sortN" class="name">Name</th>
+        <th id="sortE" class="email">Email</th>
+        <th id="sortL" class="location">Location</th>
+        <th id="sortP" class="phone">Phone</th>
+        <th id="sortF" class="face">FaceBook</th>
         <th>Favorite</th>
         <th>Remove</th>
       </tr>
@@ -50,12 +50,13 @@
 
     <tbody id="contactList">
 
+
       <tr id="template">
         <td class="name"></td>
         <td class="email"></td>
         <td class="location"></td>
         <td class="phone"></td>
-        <td class="fb"></td>
+        <td class="face"></td>
 
         <td>
           <button type="button" class="btn btn-danger" id="fav">
@@ -117,11 +118,10 @@
     </div>
     <button id="newEntry" class="btn btn-danger">Add New Contact</button>
    </form>
-  </div>
+ </div>
 </div>
 
-
-<script src="http://momentjs.com/downloads/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="main.js"></script>
