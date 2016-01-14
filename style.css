@@ -5,18 +5,20 @@ body{
 .table {
   margin-left: 20px;
   margin-right: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 h1 {
   color: red;
-  font-size: 42px;
+  font-size: 38px;
   margin-left: 50px;
   margin-bottom: 40px;
   font-family: arial;
   font-style: italic;
   font-weight: bold;
 }
-
+#topButtons {
+  margin-bottom: 40px;
+}
 h2 {
   color: green;
   font-size: 25px;
@@ -25,7 +27,7 @@ h2 {
 #formEntry {
   margin-left: 20px;
   margin-right: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .form-control {

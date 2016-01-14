@@ -34,15 +34,15 @@
     </div>
   </div>
 
-  <div class="table-responsive">
+  <div class="table">
     <table class="table">
     <thead class="tHeader">
       <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Location</th>
-        <th>Phone</th>
-        <th>FaceBook</th>
+        <th id="sortN" class="sort name">Name</th>
+        <th id="sortE" class="sort email">Email</th>
+        <th id="sortL" class="sort loc">Location</th>
+        <th id="sortP" class="sort phone">Phone</th>
+        <th id="sortF" class="sort face">FaceBook</th>
         <th>Favorite</th>
         <th>Remove</th>
       </tr>
@@ -71,9 +71,9 @@
       <tr>
         <td class="name">John Smith</td>
         <td class="email">jsmith@gmail.com</td>
-        <td class="location">San Diego</td>
+        <td class="loc">San Diego</td>
         <td class="phone">555.555.5555</td>
-        <td class="fb">The Real J Smith</td>
+        <td class="face">The Real J Smith</td>
         <td>
           <button type="button" class="btn btn-danger" id="heart">
             <span class="glyphicon glyphicon-heart"></span>
@@ -97,16 +97,16 @@
         <input type="name" class="form-control" id="conEntry" placeholder="Enter Name" value="" required>
       </div>
       <div class="form-group">
-        <label for="inputDate">Email</label>
+        <label for="inputDate">@</label>
         <input type="email" class="form-control" id="emailEntry" placeholder="Enter Email" value="" required="">
       </div>
       <div class="form-group">
         <label class="locInput" for="inputAmount">Location</label>
-        <input type="number" class="form-control" id="locEntry" placeholder="Enter Location" value="" step=0.01 required>
+        <input type="text" class="form-control" id="locEntry" placeholder="Enter Location" value="" required>
       </div>
       <div class="form-group">
-        <label class="phoneInput" for="inputAmount">Phone</label>
-        <input type="phone" class="form-control" id="phonetEntry" placeholder="Enter #" value="" step=0.01 required>
+        <label class="phoneInput" for="inputAmount">#</label>
+        <input type="phone" class="form-control" id="phoneEntry" placeholder="Enter #" value="" step=000-000-0000 required>
       </div>
       <div class="form-group">
         <label class="face" for="inputAmount">Facebook</label>
