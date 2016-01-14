@@ -63,7 +63,7 @@ function deleteTrans() {
 }
 
 function attachFav() {
-  $(this).closest('tr').addClass('#heart');
+  $(this).closest('tr').addClass('.favWith');
   console.log(this);
 }
 
@@ -112,39 +112,6 @@ contactList.children().not('#template').remove();
     });
   contactList.append($contacts);
 }
-
-// function sortHeaders(event) {
-//     var $targetId = $(event.target).attr('id');
-//     if($targetId == 'sortN') {
-//       contactList = _.sortBy(contactList, function(o) {
-//         return o.name
-//       });
-//     }
-//     if($targetId == 'sortE') {
-//       contactList = _.sortBy(contactList, function(o) {
-//         return o.email;
-//       });
-//     }
-//     if($targetId == 'sortL') {
-//       contactList = _.sortBy(contactList, function(o) {
-//         return o.location;
-//       });
-//     }
-//     if($targetId == 'sortP') {
-//       contactList = _.sortBy(contactList, function(o) {
-//         return o.phone;
-//       });
-//     }
-//     if($targetId == 'sortF') {
-//       contactList = _.sortBy(contactList, function(o) {
-//         return o.face;
-//         console.log('1');
-//       });
-//     }
-//     console.log('2');
-//     saveToStorage();
-//     updateList();
-//   }
 
 function sortHeaders(e) {
     var $target = $(e.target);

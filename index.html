@@ -12,7 +12,35 @@
     <h1>The D List <small>Modern Dating Contact List</small></h1>
   </div>
 
-  <div id="topButtons" class="container">
+  <div id="container">
+    <div id="formEntry" class="row">
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="inputTask">New Contact</label>
+          <input type="name" class="form-control" id="conEntry" placeholder="Enter Name" value="" required>
+        </div>
+        <div class="form-group">
+          <label for="inputDate">@</label>
+          <input type="email" class="form-control" id="emailEntry" placeholder="Enter Email" value="" required="">
+        </div>
+        <div class="form-group">
+          <label class="locInput" for="inputAmount">Location</label>
+          <input type="text" class="form-control" id="locEntry" placeholder="Enter Location" value="" required>
+        </div>
+        <div class="form-group">
+          <label class="phoneInput" for="inputAmount">#</label>
+          <input type="tel" class="form-control" id="phoneEntry" placeholder="xxx xxx xxxx" value="" pattern="[0-9]"  required>
+        </div>
+        <div class="form-group">
+          <label class="face" for="inputAmount">Facebook</label>
+          <input type="text" class="form-control" id="faceEntry" placeholder="FB handle" value="" required>
+        </div>
+
+      </div>
+      <button id="newEntry" class="btn btn-danger">Add New Contact</button>
+     </form>
+   </div>
+  <!-- <div id="topButtons" class="container">
     <div class="btn-group">
       <button id="buttonFilter" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Find Contact<span class="caret"></span></button>
       <ul id="catDropDown" class="dropdown-menu">
@@ -32,7 +60,7 @@
         <li class="sortDropList"><a href="#">By Location</a></li>
       </ul>
     </div>
-  </div>
+  </div> -->
 
   <div class="table">
     <table class="table">
@@ -91,34 +119,6 @@
   </tbody>
 </div>
 
-<div id="container">
-  <div id="formEntry" class="row">
-    <form class="form-inline">
-      <div class="form-group">
-        <label for="inputTask">New Contact</label>
-        <input type="name" class="form-control" id="conEntry" placeholder="Enter Name" value="" required>
-      </div>
-      <div class="form-group">
-        <label for="inputDate">@</label>
-        <input type="email" class="form-control" id="emailEntry" placeholder="Enter Email" value="" required="">
-      </div>
-      <div class="form-group">
-        <label class="locInput" for="inputAmount">Location</label>
-        <input type="text" class="form-control" id="locEntry" placeholder="Enter Location" value="" required>
-      </div>
-      <div class="form-group">
-        <label class="phoneInput" for="inputAmount">#</label>
-        <input type="phone" class="form-control" id="phoneEntry" placeholder="Enter #" value="" step=000-000-0000 required>
-      </div>
-      <div class="form-group">
-        <label class="face" for="inputAmount">Facebook</label>
-        <input type="text" class="form-control" id="faceEntry" value="" required>
-      </div>
-
-    </div>
-    <button id="newEntry" class="btn btn-danger">Add New Contact</button>
-   </form>
- </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>

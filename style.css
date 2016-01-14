@@ -19,11 +19,16 @@ h1 {
 #topButtons {
   margin-bottom: 40px;
 }
-h2 {
-  color: green;
-  font-size: 25px;
-  margin-left: 50px;
+th {
+  color: #000;
+  font-style: italic;
+  font-size: 16px;
 }
+
+th:hover {
+  color: red;
+}
+
 #formEntry {
   margin-left: 20px;
   margin-right: 20px;
@@ -48,14 +53,8 @@ label{
   color: #000;
   font-size: 16px;
 }
-.checkbox {
-  margin-left: 30px;
-}
-.testDep {
-  color: green;
-  font-weight: bold;
-}
-.testWith {
+
+.favWith {
   color: red;
   font-weight: bold;
 }
